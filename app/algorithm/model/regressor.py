@@ -10,11 +10,11 @@ from sklearn.ensemble import RandomForestRegressor
 
 
 model_fname = "model.save"
-MODEL_NAME = "regression_class_random_forest_shapley"
+MODEL_NAME = "reg_base_random_forest_shapley"
 
 class Regressor(): 
     
-    def __init__(self, n_estimators = 100, max_features = 1, max_samples = 0.5, **kwargs) -> None:
+    def __init__(self, n_estimators = 250, max_features = 1, max_samples = 0.5, **kwargs) -> None:
         self.n_estimators = int(n_estimators)
         self.max_features = int(max_features)
         self.max_samples= np.float(max_samples)
@@ -74,5 +74,13 @@ def load_model(model_path):
         raise Exception(f'''Error loading the trained {MODEL_NAME} model. 
             Do you have the right trained model in path: {model_path}?''')
     return model
+
+
+def get_data_based_model_params(data): 
+    ''' 
+        Set any model parameters that are data dependent. 
+        For example, number of layers or neurons in a neural network as a function of data shape.
+    '''  
+    return {"max_features": max(1, 0.5 *data.shape[1])}
 
 
