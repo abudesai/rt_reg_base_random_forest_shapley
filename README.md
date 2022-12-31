@@ -15,7 +15,7 @@ Random Forest using Scikit-Learn and Shapley for Regression
 - gunicorn
 - docker
 
-This is an explainable version of Random Forest- black box model using SHAP(SHapley Additive exPlanations).
+This is an explainable version of Random Forest- black box model using SHAP (SHapley Additive exPlanations).
 
 A Random Forest algorithm fits a number of decision trees on various samples of the dataset and uses mean of all outputs to improve the predictive accuracy and controls over-fitting.
 
